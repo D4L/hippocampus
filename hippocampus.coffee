@@ -1,11 +1,5 @@
 if Meteor.isClient
-  Template.hello.greeting = ->
-    "Welcome to hippocampus."
-
-  Template.hello.events
-    'click input' : ->
-      # template data, if any, is available in 'this'
-      console.log("You pressed the button")
+  console.log("hi client")
 
 if Meteor.isServer
   Meteor.startup ->

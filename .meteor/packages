@@ -7,3 +7,5 @@ autopublish
 insecure
 preserve-inputs
 coffeescript
+accounts-ui
+accounts-password
