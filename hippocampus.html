@@ -3,5 +3,22 @@
 </head>
 
 <body>
-  {{ loginButtons }}
+  {{> content}}
 </body>
+
+<template name="content">
+  <div class="content">
+    {{#if currentUser}}
+      <h3>Hi {{ username }}</h3>
+      <a class="logout" href="#">Log out</a>
+    {{else}}
+      <h3>Create user</h3>
+      <form class="create-user">
+        Username: <input type="text" name="username"/><br/>
+        Password: <input type="password" name="password"/><br/>
+        <input type="submit" value="Create"/>
+      </form>
+
+    {{/if}}
+  </div>
+</template>
