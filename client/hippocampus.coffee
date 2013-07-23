@@ -1,7 +1,7 @@
-Template.content.username = ->
+Template.user.username = ->
   Meteor.user().username
 
-Template.content.events
+Template.user.events
   'click .logout' : (evt) ->
     Meteor.logout()
     evt.preventDefault()
