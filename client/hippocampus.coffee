@@ -25,3 +25,18 @@ Template.user.events
       if error
         $(".login-user > .error").text( error.reason )
     evt.preventDefault()
+
+Template.list.userItems = ->
+  Items.find
+    user_id: Meteor.user()._id
+
+Template.list.events
+  'submit .add-item' : (evt) ->
+    name = $(".add-item > input[name=name]").val()
+    if name == ""
+      $(".add-item > .error").text( "Must enter name" )
+    else
+      Items.insert
+        user_id:  Meteor.user()._id
+        name:     name
+    evt.preventDefault()

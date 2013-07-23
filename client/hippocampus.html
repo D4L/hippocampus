@@ -10,6 +10,7 @@
 
 <template name="content">
   {{> user}}
+  {{> list}}
 </template>
 
 <template name="user">
@@ -33,4 +34,23 @@
     </form>
 
   {{/if}}
+</template>
+
+<template name="list">
+  {{#if currentUser}}
+    {{#each userItems}}
+      {{>item}}
+    {{/each}}
+    <form class="add-item">
+      Name: <input type="text" name="name"/><br/>
+      <input type="submit" value="Add Item"/>
+      <div class="error"></div>
+    </form>
+  {{/if}}
+</template>
+
+<template name="item">
+  <div>
+    {{name}}
+  </div>
 </template>
