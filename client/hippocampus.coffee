@@ -6,24 +6,26 @@ Template.user.events
     Meteor.logout()
     evt.preventDefault()
   'submit .create-user' : (evt) ->
-    username = $(".create-user > input[name=username]").val()
-    password = $(".create-user > input[name=password]").val() || ""
+    form = $(evt.target)
+    username = form.find("input[name=username]").val()
+    password = form.find("input[name=password]").val() || ""
     try
       Accounts.createUser
         "username" : username
         "password" : password
         (error) ->
           if error
-            $(".create-user > .error").text( error.reason )
+            form.find(".error").text( error.reason )
     catch error
-      $(".create-user > .error").text( "Must set password" )
+      form.find(".error").text( "Must set password" )
     evt.preventDefault()
   'submit .login-user' : (evt) ->
-    username = $(".login-user > input[name=username]").val()
-    password = $(".login-user > input[name=password]").val()
+    form = $(evt.target)
+    username = form.find("input[name=username]").val()
+    password = form.find("input[name=password]").val()
     Meteor.loginWithPassword username, password, (error) ->
       if error
-        $(".login-user > .error").text( error.reason )
+        form.find(".error").text( error.reason )
     evt.preventDefault()
 
 Template.list.userItems = ->
@@ -32,9 +34,10 @@ Template.list.userItems = ->
 
 Template.list.events
   'submit .add-item' : (evt) ->
-    name = $(".add-item > input[name=name]").val()
+    form = $(evt.target)
+    name = form.find("input[name=name]").val()
     if name == ""
-      $(".add-item > .error").text( "Must enter name" )
+      form.find(".error").text( "Must enter name" )
     else
       Items.insert
         user_id:  Meteor.user()._id
