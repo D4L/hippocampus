@@ -8,7 +8,7 @@ Template.user.events
   'submit .create-user' : (evt) ->
     form = $(evt.target)
     username = form.find("input[name=username]").val()
-    password = form.find("input[name=password]").val() || ""
+    password = form.find("input[name=password]").val()
     try
       Accounts.createUser
         "username" : username
