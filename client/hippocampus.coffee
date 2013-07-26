@@ -43,3 +43,9 @@ Template.list.events
         user_id:  Meteor.user()._id
         name:     name
     evt.preventDefault()
+
+Template.item.events
+  'click .delete' : (evt) ->
+    Items.remove @_id
+    evt.preventDefault()
+
