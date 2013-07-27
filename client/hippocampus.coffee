@@ -40,8 +40,9 @@ Template.hook.events
       form.find(".error").text( "Must enter name" )
     else
       Bites.insert
-        user_id:  Meteor.user()._id
-        name:     name
+        user_id:          Meteor.user()._id
+        name:             name
+        next_recall_at:   new Date(new Date().getTime() + 1000 * 60 * 60 * 24)
     evt.preventDefault()
 
 Template.bite.events
