@@ -10,6 +10,7 @@
 
 <template name="content">
   {{> user}}
+  {{> line}}
   {{> hook}}
 </template>
 
@@ -36,9 +37,19 @@
   {{/if}}
 </template>
 
-<template name="hook">
+<template name="line">
+  <h3>This is your line</h3>
   {{#if currentUser}}
-    {{#each userBites}}
+    {{#each userLine}}
+      {{>bite}}
+    {{/each}}
+  {{/if}}
+</template>
+
+<template name="hook">
+  <h3> This is your hook</h3>
+  {{#if currentUser}}
+    {{#each userHook}}
       {{>bite}}
     {{/each}}
     <form class="add-bite">

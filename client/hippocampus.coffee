@@ -28,7 +28,12 @@ Template.user.events
         form.find(".error").text( error.reason )
     evt.preventDefault()
 
-Template.hook.userBites = ->
+Template.line.userLine = ->
+  Bites.find
+    user_id:        Meteor.user()._id
+    next_recall_at: {$lt: new Date()}
+
+Template.hook.userHook = ->
   Bites.find
     user_id: Meteor.user()._id
 
