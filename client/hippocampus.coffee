@@ -28,24 +28,24 @@ Template.user.events
         form.find(".error").text( error.reason )
     evt.preventDefault()
 
-Template.list.userItems = ->
-  Items.find
+Template.hook.userBites = ->
+  Bites.find
     user_id: Meteor.user()._id
 
-Template.list.events
-  'submit .add-item' : (evt) ->
+Template.hook.events
+  'submit .add-bite' : (evt) ->
     form = $(evt.target)
     name = form.find("input[name=name]").val()
     if name == ""
       form.find(".error").text( "Must enter name" )
     else
-      Items.insert
+      Bites.insert
         user_id:  Meteor.user()._id
         name:     name
     evt.preventDefault()
 
-Template.item.events
+Template.bite.events
   'click .delete' : (evt) ->
-    Items.remove @_id
+    Bites.remove @_id
     evt.preventDefault()
 

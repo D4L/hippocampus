@@ -10,7 +10,7 @@
 
 <template name="content">
   {{> user}}
-  {{> list}}
+  {{> hook}}
 </template>
 
 <template name="user">
@@ -36,20 +36,20 @@
   {{/if}}
 </template>
 
-<template name="list">
+<template name="hook">
   {{#if currentUser}}
-    {{#each userItems}}
-      {{>item}}
+    {{#each userBites}}
+      {{>bite}}
     {{/each}}
-    <form class="add-item">
+    <form class="add-bite">
       Name: <input type="text" name="name"/><br/>
-      <input type="submit" value="Add Item"/>
+      <input type="submit" value="Add Bite"/>
       <div class="error"></div>
     </form>
   {{/if}}
 </template>
 
-<template name="item">
+<template name="bite">
   <div>
     {{name}}
     <a class="delete" href="#">Delete</a>
