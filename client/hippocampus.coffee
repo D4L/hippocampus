@@ -39,14 +39,16 @@ Template.hook.userHook = ->
 
 Template.hook.events
   'submit .add-bite' : (evt) ->
-    form = $(evt.target)
-    name = form.find("input[name=name]").val()
-    if name == ""
-      form.find(".error").text( "Must enter name" )
+    form    = $(evt.target)
+    title   = form.find("input[name=title]").val()
+    content = form.find("[name=content]").val()
+    if title == "" || content == ""
+      form.find(".error").text( "Must enter all info" )
     else
       Bites.insert
         user_id:          Meteor.user()._id
-        name:             name
+        title:            title
+        content:          content
         next_recall_at:   new Date(new Date().getTime() + 1000 * 60 * 60 * 24)
     evt.preventDefault()
 

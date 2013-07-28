@@ -53,7 +53,9 @@
       {{>bite}}
     {{/each}}
     <form class="add-bite">
-      Name: <input type="text" name="name"/><br/>
+      <h3>Add Bite</h3>
+      Title: <input type="text" name="title"/><br/>
+      Content: <textarea rows="4" cols="50" name="content"></textarea><br/>
       <input type="submit" value="Add Bite"/>
       <div class="error"></div>
     </form>
@@ -62,7 +64,9 @@
 
 <template name="bite">
   <div>
-    {{name}}
+    <h4>{{title}}</h4>
+    {{content}}
+    <br>
     {{getDate}}
     <a class="delete" href="#">Delete</a>
   </div>
