@@ -50,6 +50,9 @@ Template.hook.events
         next_recall_at:   new Date(new Date().getTime() + 1000 * 60 * 60 * 24)
     evt.preventDefault()
 
+Template.bite.getDate = ->
+  @.next_recall_at.toDateString()
+
 Template.bite.events
   'click .delete' : (evt) ->
     Bites.remove @_id
