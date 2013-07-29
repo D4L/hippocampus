@@ -38,8 +38,8 @@
 </template>
 
 <template name="line">
-  <h3>This is your line</h3>
   {{#if currentUser}}
+    <h3>This is your line</h3>
     {{#each userLine}}
       {{>bite}}
     {{/each}}
@@ -47,8 +47,8 @@
 </template>
 
 <template name="hook">
-  <h3> This is your hook</h3>
   {{#if currentUser}}
+    <h3> This is your hook</h3>
     {{#each userHook}}
       {{>bite}}
     {{/each}}
