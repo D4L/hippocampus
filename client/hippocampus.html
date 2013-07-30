@@ -41,16 +41,26 @@
   {{#if currentUser}}
     <h3>This is your line</h3>
     {{#each userLine}}
-      {{>bite}}
+      {{>lineBite}}
     {{/each}}
   {{/if}}
+</template>
+
+<template name="lineBite">
+  <div>
+    <h4>{{title}}</h4>
+    {{content}}
+    <br>
+    {{getDate}}
+    <a class="delete" href="#">Delete</a>
+  </div>
 </template>
 
 <template name="hook">
   {{#if currentUser}}
     <h3> This is your hook</h3>
     {{#each userHook}}
-      {{>bite}}
+      {{>hookBite}}
     {{/each}}
     <form class="add-bite">
       <h3>Add Bite</h3>
@@ -62,12 +72,12 @@
   {{/if}}
 </template>
 
-<template name="bite">
+<template name="hookBite">
   <div>
     <h4>{{title}}</h4>
     {{content}}
     <br>
     {{getDate}}
-    <a class="delete" href="#">Delete</a>
+    <a class="recall" href="#">Recall</a>
   </div>
 </template>
