@@ -1,5 +1,8 @@
 oneDay = 1000 * 60 * 60 * 24
 
+resetError = (evt) ->
+  $(evt.target).parent("form").find(".error").html("")
+
 Template.user.username = ->
   Meteor.user().username
 
@@ -30,6 +33,9 @@ Template.user.events
         form.find(".error").text( error.reason )
     evt.preventDefault()
 
+  'focus .login-user input' : resetError
+  'focus .create-user input' : resetError
+
 Template.line.userLine = ->
   Bites.find
     user_id:        Meteor.user()._id
@@ -55,6 +61,9 @@ Template.hook.events
         next_recall_interval:   2
       form[0].reset()
     evt.preventDefault()
+
+  'focus .add-bite input' : resetError
+  'focus .add-bite textarea' : resetError
 
 Template.lineBite.getDate = Template.hookBite.getDate = ->
   @next_recall_at.toDateString()
