@@ -1,7 +1,12 @@
 oneDay = 1000 * 60 * 60 * 24
+Session.set("page", "home")
 
 resetError = (evt) ->
   $(evt.target).parent("form").find(".error").html("")
+
+Template.mainContent.ifPageIs = (data, options) ->
+  if Session.get("page") == data
+    options.fn(this)
 
 Template.user.username = ->
   Meteor.user().username

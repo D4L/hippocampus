@@ -4,14 +4,22 @@
 
 <body>
   <div class="content">
-    {{> content}}
+    <div class="header">
+      {{> header}}
+    </div>
+    {{> mainContent}}
   </div>
 </body>
 
-<template name="content">
-  {{> user}}
-  {{> line}}
-  {{> hook}}
+<template name="mainContent">
+  {{#ifPageIs "home"}}
+    {{> user}}
+    {{> line}}
+    {{> hook}}
+  {{/ifPageIs}}
+  {{#ifPageIs "about"}}
+    {{> about}}
+  {{/ifPageIs}}
 </template>
 
 <template name="user">
