@@ -5,5 +5,8 @@
   <div class="navigation-links">
     <a href="#" class="home-link nav-link">Home</a>
     <a href="#" class="about-link nav-link">About</a>
+    {{#if currentUser}}
+      <a href="#" class="logout nav-link">Log out</a>
+    {{/if}}
   </div>
 </template>

@@ -12,9 +12,6 @@ Template.user.username = ->
   Meteor.user().username
 
 Template.user.events
-  'click .logout' : (evt) ->
-    Meteor.logout()
-    evt.preventDefault()
   'submit .create-user' : (evt) ->
     form = $(evt.target)
     username = form.find("input[name=username]").val()

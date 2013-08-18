@@ -6,3 +6,7 @@ Template.header.events
   'click .about-link': (evt) ->
     Session.set("page", "about")
     evt.preventDefault()
+
+  'click .logout' : (evt) ->
+    Meteor.logout()
+    evt.preventDefault()
