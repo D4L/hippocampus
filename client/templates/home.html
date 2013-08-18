@@ -1,5 +1,34 @@
 <template name="home">
   {{> user}}
-  {{> line}}
-  {{> hook}}
+  <a href="#" class="line-link">Your Line</a>
+  <a href="#" class="hook-link">Your Hook</a>
+  {{#ifSubPageIs "line"}}
+    {{> line}}
+  {{/ifSubPageIs}}
+  {{#ifSubPageIs "hook"}}
+    {{> hook}}
+  {{/ifSubPageIs}}
 </template>
+
+<template name="user">
+  {{#if currentUser}}
+    <h3>Hi {{ username }}</h3>
+  {{else}}
+    <h3>Login</h3>
+    <form class="login-user">
+      Username: <input type="text" name="username"/><br/>
+      Password: <input type="password" name="password"/><br/>
+      <input type="submit" value="Login"/>
+      <div class="error"></div>
+    </form>
+    <h3>Create user</h3>
+    <form class="create-user">
+      Username: <input type="text" name="username"/><br/>
+      Password: <input type="password" name="password"/><br/>
+      <input type="submit" value="Create"/>
+      <div class="error"></div>
+    </form>
+
+  {{/if}}
+</template>
+
