@@ -1,4 +1,8 @@
 Template.header.events
+  'click .add-memory-link': (evt) ->
+    Session.set("page", "add-bite")
+    evt.preventDefault()
+
   'click .home-link': (evt) ->
     Session.set("page", "home")
     evt.preventDefault()
@@ -8,5 +12,6 @@ Template.header.events
     evt.preventDefault()
 
   'click .logout' : (evt) ->
+    Session.set("page", "home")
     Meteor.logout()
     evt.preventDefault()

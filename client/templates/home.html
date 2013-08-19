@@ -1,13 +1,7 @@
 <template name="home">
   {{> user}}
-  <a href="#" class="line-link">Your Line</a>
-  <a href="#" class="hook-link">Your Hook</a>
-  {{#ifSubPageIs "line"}}
-    {{> line}}
-  {{/ifSubPageIs}}
-  {{#ifSubPageIs "hook"}}
-    {{> hook}}
-  {{/ifSubPageIs}}
+  {{> line}}
+  {{> hook}}
 </template>
 
 <template name="user">

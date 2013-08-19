@@ -15,10 +15,13 @@
 
 <template name="mainContent">
   {{#ifPageIs "home"}}
-    {{>home}}
+    {{> home}}
   {{/ifPageIs}}
   {{#ifPageIs "about"}}
     {{> about}}
+  {{/ifPageIs}}
+  {{#ifPageIs "add-bite"}}
+    {{> biteAdd}}
   {{/ifPageIs}}
 </template>
 
@@ -48,13 +51,6 @@
     {{#each userHook}}
       {{>hookBite}}
     {{/each}}
-    <form class="add-bite">
-      <h3>Add Bite</h3>
-      Title: <input type="text" name="title"/><br/>
-      Content: <textarea rows="4" cols="50" name="content"></textarea><br/>
-      <input type="submit" value="Add Bite"/>
-      <div class="error"></div>
-    </form>
   {{/if}}
 </template>
 
