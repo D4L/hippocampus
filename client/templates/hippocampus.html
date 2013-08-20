@@ -23,26 +23,9 @@
   {{#ifPageIs "add-bite"}}
     {{> biteAdd}}
   {{/ifPageIs}}
-</template>
-
-
-<template name="line">
-  {{#if currentUser}}
-    <h3>This is your line</h3>
-    {{#each userLine}}
-      {{>lineBite}}
-    {{/each}}
-  {{/if}}
-</template>
-
-<template name="lineBite">
-  <div>
-    <h4>{{title}}</h4>
-    {{content}}
-    <br>
-    {{getDate}}
-    <a class="delete" href="#">Delete</a>
-  </div>
+  {{#ifPageIs "all-bite"}}
+    {{> biteAll}}
+  {{/ifPageIs}}
 </template>
 
 <template name="hook">

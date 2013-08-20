@@ -34,22 +34,10 @@ Template.user.events
   'focus .login-user input' : resetError
   'focus .create-user input' : resetError
 
-Template.line.userLine = ->
-  Bites.find
-    user_id:        Meteor.user()._id
-
 Template.hook.userHook = ->
   Bites.find
     user_id: Meteor.user()._id
     next_recall_at: {$lt: new Date()}
-
-Template.lineBite.getDate = Template.hookBite.getDate = ->
-  @next_recall_at.toDateString()
-
-Template.lineBite.events
-  'click .delete' : (evt) ->
-    Bites.remove @_id
-    evt.preventDefault()
 
 Template.hookBite.events
   'click .recall' : (evt) ->

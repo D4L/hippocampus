@@ -1,4 +1,8 @@
 Template.header.events
+  'click .all-memory-link': (evt) ->
+    Session.set("page", "all-bite")
+    evt.preventDefault()
+
   'click .add-memory-link': (evt) ->
     Session.set("page", "add-bite")
     evt.preventDefault()
