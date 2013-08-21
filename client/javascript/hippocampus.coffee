@@ -4,6 +4,12 @@ Session.set("page", "home")
 resetError = (evt) ->
   $(evt.target).parent("form").find(".error").html("")
 
+Handlebars.registerHelper "ifPageIs", (data, options) ->
+  if Session.get("page") == data
+    options.fn(this)
+  else
+    options.inverse(this)
+
 Template.user.username = ->
   Meteor.user().username
 
@@ -34,19 +40,3 @@ Template.user.events
   'focus .login-user input' : resetError
   'focus .create-user input' : resetError
 
-Template.hook.userHook = ->
-  Bites.find
-    user_id: Meteor.user()._id
-    next_recall_at: {$lt: new Date()}
-
-Template.hookBite.events
-  'click .recall' : (evt) ->
-    Bites.update
-      _id: @_id
-      {
-        $set:
-          next_recall_at:       new Date(@next_recall_at.getTime() + oneDay * @next_recall_interval)
-        $inc:
-          next_recall_interval: 1
-      }
-    evt.preventDefault()

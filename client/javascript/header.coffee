@@ -1,4 +1,14 @@
+Template.header.hookCount = ->
+  Bites.find
+    user_id: Meteor.user()._id
+    next_recall_at: {$lt: new Date()}
+  .count()
+
 Template.header.events
+  'click .start-link': (evt) ->
+    Session.set("page", "recall-bite")
+    evt.preventDefault()
+
   'click .all-memory-link': (evt) ->
     Session.set("page", "all-bite")
     evt.preventDefault()

@@ -15,5 +15,6 @@ Template.biteAdd.events
       form[0].reset()
     evt.preventDefault()
 
-  'focus .add-memory input' : resetError
-  'focus .add-memory textarea' : resetError
+  # TODO: fix resetError
+  # 'focus .add-memory input' : resetError
+  # 'focus .add-memory textarea' : resetError

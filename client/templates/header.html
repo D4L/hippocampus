@@ -4,6 +4,11 @@
   </div>
   <div class="navigation-links">
     {{#if currentUser}}
+      {{#ifPageIs "recall-bite"}}
+        {{hookCount}} Remaining
+      {{else}}
+        <a href="#" class="start-link nav-link">Start</a>
+      {{/ifPageIs}}
       <a href="#" class="all-memory-link nav-link">All Memories</a>
       <a href="#" class="add-memory-link nav-link">Add Memory</a>
       <a href="#" class="logout nav-link">Log out</a>

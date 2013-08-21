@@ -26,23 +26,7 @@
   {{#ifPageIs "all-bite"}}
     {{> biteAll}}
   {{/ifPageIs}}
-</template>
-
-<template name="hook">
-  {{#if currentUser}}
-    <h3> This is your hook</h3>
-    {{#each userHook}}
-      {{>hookBite}}
-    {{/each}}
-  {{/if}}
-</template>
-
-<template name="hookBite">
-  <div>
-    <h4>{{title}}</h4>
-    {{content}}
-    <br>
-    {{getDate}}
-    <a class="recall" href="#">Recall</a>
-  </div>
+  {{#ifPageIs "recall-bite"}}
+    {{> biteRecall}}
+  {{/ifPageIs}}
 </template>
