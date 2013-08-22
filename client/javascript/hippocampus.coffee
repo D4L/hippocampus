@@ -10,10 +10,7 @@ Handlebars.registerHelper "ifPageIs", (data, options) ->
   else
     options.inverse(this)
 
-Template.user.username = ->
-  Meteor.user().username
-
-Template.user.events
+Template.signin.events
   'submit .create-user' : (evt) ->
     form = $(evt.target)
     username = form.find("input[name=username]").val()

@@ -1,26 +1,19 @@
 <template name="home">
-  {{> user}}
+  {{#unless currentUser}}
+    {{> signin}}
+  {{/unless}}
 </template>
 
-<template name="user">
-  {{#if currentUser}}
-    <h3>Hi {{ username }}</h3>
-  {{else}}
+<template name="signin">
+  <div class="login-form span4 offset2">
     <h3>Login</h3>
     <form class="login-user">
-      Username: <input type="text" name="username"/><br/>
+      <label for="username">Username:</label><input type="text" name="username"/><br/>
       Password: <input type="password" name="password"/><br/>
-      <input type="submit" value="Login"/>
+      <input class="btn btn-primary" type="submit" value="Login"/>
       <div class="error"></div>
     </form>
-    <h3>Create user</h3>
-    <form class="create-user">
-      Username: <input type="text" name="username"/><br/>
-      Password: <input type="password" name="password"/><br/>
-      <input type="submit" value="Create"/>
-      <div class="error"></div>
-    </form>
-
-  {{/if}}
+    <a href="#" class="signup-link">Don't have a user? Create a user here!</a>
+  </div>
 </template>
 
