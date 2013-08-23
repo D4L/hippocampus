@@ -11,20 +11,6 @@ Handlebars.registerHelper "ifPageIs", (data, options) ->
     options.inverse(this)
 
 Template.signin.events
-  'submit .create-user' : (evt) ->
-    form = $(evt.target)
-    username = form.find("input[name=username]").val()
-    password = form.find("input[name=password]").val()
-    try
-      Accounts.createUser
-        "username" : username
-        "password" : password
-        (error) ->
-          if error
-            form.find(".error").text( error.reason )
-    catch error
-      form.find(".error").text( "Must set password" )
-    evt.preventDefault()
   'submit .login-user' : (evt) ->
     form = $(evt.target)
     username = form.find("input[name=username]").val()
@@ -36,4 +22,8 @@ Template.signin.events
 
   'focus .login-user input' : resetError
   'focus .create-user input' : resetError
+
+  'click .signup-link' : (evt) ->
+    evt.preventDefault()
+    Session.set("page", "signup")
 
