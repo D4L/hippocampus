@@ -1,3 +1,5 @@
+oneDay = 1000 * 60 * 60 * 24
+
 Template.biteAdd.events
   'submit .add-memory' : (evt) ->
     form    = $(evt.target)
