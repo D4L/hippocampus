@@ -6,3 +6,7 @@ Template.biteAll.events
   'click .delete' : (evt) ->
     Bites.remove @_id
     evt.preventDefault()
+
+  'click .edit' : (evt) ->
+    Session.set("page", "edit-bite")
+    evt.preventDefault()
