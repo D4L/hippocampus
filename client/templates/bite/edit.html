@@ -1,5 +1,10 @@
 <template name="biteEdit">
   <h3>Edit</h3>
-  <a class="cancel" href="#">Cancel</a>
-  <a class="save" href="#">Save</a>
+  {{#with selectedBite}}
+    <h4>{{title}}</h4>
+    {{content}}
+    <br>
+    <a class="cancel" href="#">Cancel</a>
+    <a class="save" href="#">Save</a>
+  {{/with}}
 </template>

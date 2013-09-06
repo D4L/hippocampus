@@ -9,4 +9,5 @@ Template.biteAll.events
 
   'click .edit' : (evt) ->
     Session.set("page", "edit-bite")
+    Session.set("selectedBite", @)
     evt.preventDefault()
