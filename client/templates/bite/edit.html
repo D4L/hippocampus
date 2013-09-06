@@ -1,10 +1,13 @@
 <template name="biteEdit">
   <h3>Edit</h3>
   {{#with selectedBite}}
-    <h4>{{title}}</h4>
-    {{content}}
-    <br>
-    <a class="cancel" href="#">Cancel</a>
-    <a class="save" href="#">Save</a>
+    <form class="edit-memory">
+      <input type="text" name="title" value="{{title}}"></input>
+      <br>
+      <textarea rows="4" cols="50" name="content">{{content}}</textarea>
+      <br>
+      <a class="cancel" href="#">Cancel</a>
+      <input type="submit" value="Save"/>
+    </form>
   {{/with}}
 </template>
