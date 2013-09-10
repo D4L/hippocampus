@@ -1,6 +1,3 @@
-# TODO globalize this
-oneDay = 1000 * 60 * 60 * 24
-
 Template.biteRecall.oneHook = ->
   Bites.findOne
     user_id: Meteor.user()._id

@@ -1,5 +1,3 @@
-oneDay = 1000 * 60 * 60 * 24
-
 Template.biteAdd.userTagAll = () ->
   JSON.stringify Bites.find
     user_id: Meteor.userId()

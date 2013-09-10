@@ -1,4 +1,3 @@
-oneDay = 1000 * 60 * 60 * 24
 Session.set("page", "home")
 
 resetError = (evt) ->
