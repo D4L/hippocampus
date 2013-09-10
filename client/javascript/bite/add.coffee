@@ -5,6 +5,7 @@ Template.biteAdd.events
     form    = $(evt.target)
     title   = form.find("input[name=title]").val()
     content = form.find("[name=content]").val()
+    tag = form.find("input[name=tag]").val()
     if title == "" || content == ""
       form.find(".error").text( "Must enter all info" )
     else
@@ -12,6 +13,7 @@ Template.biteAdd.events
         user_id:                Meteor.user()._id
         title:                  title
         content:                content
+        tag:                    tag
         next_recall_at:         new Date(new Date().getTime() + oneDay)
         next_recall_interval:   2
       form[0].reset()
