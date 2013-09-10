@@ -1,5 +1,15 @@
 oneDay = 1000 * 60 * 60 * 24
 
+Template.biteAdd.userTagAll = () ->
+  JSON.stringify Bites.find
+    user_id: Meteor.userId()
+  .map (bite) ->
+    bite.tag
+  # remove the empty tags
+  .filter (tag) ->
+    tag
+  .unique()
+
 Template.biteAdd.events
   'submit .add-memory' : (evt) ->
     form    = $(evt.target)
