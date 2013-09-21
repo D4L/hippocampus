@@ -1,8 +1,11 @@
 <template name="biteRecall">
   {{#with oneHook}}
     <div>
-      Recall that {{title}}
+      <h4>Recall that {{title}}</h4>
       {{content}}
+      <br/>
+      <span class="label">{{tag}}</span>
+      <br/>
       <a class="recall" href="#">Recall</a>
     </div>
   {{/with}}
