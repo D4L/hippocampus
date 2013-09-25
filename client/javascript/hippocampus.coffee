@@ -1,4 +1,5 @@
 Session.set("page", "home")
+Session.set("filterTag", "")
 
 resetError = (evt) ->
   $(evt.target).parent("form").find(".error").html("")

@@ -1,14 +1,29 @@
 <template name="biteAll">
   <h3>All Memories</h3>
-  {{#each line}}
-    <div>
-      <h4>{{title}}</h4>
-      {{content}}
-      <br/>
-      <span class="label">{{tag}}</span>
-      <br/>
-      <a class="edit" href="#">Edit</a>
-      <a class="delete" href="#">Delete</a>
-    </div>
-  {{/each}}
+  Filter by tag <input type="text" name="filter-tag" data-provide="typeahead" autocomplete="off" data-source="{{userTagAll}}" />
+  {{#if hasFilterTag}}
+    {{#each filteredLine}}
+      <div>
+        <h4>{{title}}</h4>
+        {{content}}
+        <br/>
+        <span class="label">{{tag}}</span>
+        <br/>
+        <a class="edit" href="#">Edit</a>
+        <a class="delete" href="#">Delete</a>
+      </div>
+    {{/each}}
+  {{else}}
+    {{#each line}}
+      <div>
+        <h4>{{title}}</h4>
+        {{content}}
+        <br/>
+        <span class="label">{{tag}}</span>
+        <br/>
+        <a class="edit" href="#">Edit</a>
+        <a class="delete" href="#">Delete</a>
+      </div>
+    {{/each}}
+  {{/if}}
 </template>
